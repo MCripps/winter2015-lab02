@@ -1,0 +1,15 @@
+<?php
+
+/* 
+ * this view fragment represents a single cell of the original gallery,
+ * based on the original cell HTML, which looked like the following
+ *       <a href="./data/Katmai_Crater_1980.jpg" 
+ *          data-lightbox="gallery" 
+ *          data-title="Katmai Crater - Mount Katmai, Alaska ... Posted 2014.05.05 by donald, in landscape">
+ *             <img src="./data/thumb/Katmai_Crater_1980.jpg"/>
+ *       </a>
+ */
+?>
+<a href="./data/{filename}" data-lightbox="gallery" data-title="{title}...Posted {uploaded}, in {category}">
+    <img src="./data/thumb/{filename}"/>
+</a>
