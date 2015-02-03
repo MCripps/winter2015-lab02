@@ -7,11 +7,9 @@
  */
 class Application extends CI_Controller {
 
-    protected $data = array();      // parameters for view components
+    protected $data;      // parameters for view components
     protected $id;		  // identifier for our content
-    protected $choices = array(// our menu navbar
-	'Home' => '/', 'Gallery' => '/gallery', 'About' => 'about'
-    );
+    protected $choices;
 
     /**
      * Constructor.
@@ -21,6 +19,8 @@ class Application extends CI_Controller {
     {
 	parent::__construct();
 	$this->data = array();
+        $this->choices = array(// our menu navbar
+            'Home' => '/', 'Gallery' => '/gallery', 'About' => 'about');
 	$this->data['pagetitle'] = 'Sample Image Gallery';
     }
 
@@ -31,7 +31,7 @@ class Application extends CI_Controller {
     {
 	$this->data['menubar'] = build_menu_bar($this->choices);
 	$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-	$this->data['data'] = &$this->data;
+	$this->data['data'] = &$this->data;// why do we do this?
 	$this->parser->parse('_template', $this->data);
     }
 
